@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class RedEye < Coffee
+class RedEye < CoffeeDrink
   def initialize
     @label = 'Red Eye'
     @cup = "\e[101m   \e[0m"
@@ -24,5 +24,9 @@ class RedEye < Coffee
 
   def espresso_label
     white_on_black('     espresso    ')
+  end
+
+  def warning
+    "\e[91m(extra caffeinated)\e[0m"
   end
 end

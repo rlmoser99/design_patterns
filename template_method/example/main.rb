@@ -1,15 +1,17 @@
 # frozen_string_literal: true
 
-require_relative 'coffee'
+require_relative 'coffee_drink'
 require_relative 'americano'
 require_relative 'latte'
 require_relative 'red_eye'
 
+puts 'Template Method Pattern with Coffee Drinks'
+
 americano = Americano.new
-puts americano.to_s
+americano.to_s
 
 latte = Latte.new
-puts latte.to_s
+latte.to_s
 
 red_eye = RedEye.new
-puts red_eye.to_s
+red_eye.to_s

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Americano < Coffee
+class Americano < CoffeeDrink
   def initialize
     @label = 'Americano'
     @cup = "\e[103m   \e[0m"
@@ -25,4 +25,6 @@ class Americano < Coffee
   def espresso_label
     white_on_black('     espresso    ')
   end
+
+  def warning; end
 end

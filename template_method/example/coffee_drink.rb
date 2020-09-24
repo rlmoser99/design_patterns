@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
-class Coffee
+class CoffeeDrink
   def initialize
     @cup = "\e[46m   \e[0m"
   end
 
   def to_s
-    <<~HEREDOC
+    puts <<~HEREDOC
+
       #{@cup}#{topping}#{@cup}
       #{@cup}#{filler}#{@cup}#{@cup}
       #{@cup}#{filler}#{@cup}  #{@cup}
@@ -18,7 +19,7 @@ class Coffee
          #{@cup}#{@cup}#{@cup}#{@cup}#{@cup}#{@cup}#{@cup}
 
                 #{@label}
-
+          #{warning}
 
     HEREDOC
   end
@@ -41,6 +42,10 @@ class Coffee
 
   def espresso_label
     raise 'Called abstract method: espresso_label'
+  end
+
+  def warning
+    raise 'Called abstract method: warning'
   end
 
   private
