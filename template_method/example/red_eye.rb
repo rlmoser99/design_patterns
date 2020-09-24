@@ -1,0 +1,28 @@
+# frozen_string_literal: true
+
+class RedEye < Coffee
+  def initialize
+    @label = 'Red Eye'
+    @cup = "\e[101m   \e[0m"
+  end
+
+  def topping
+    white_on_dk_gray('                     ')
+  end
+
+  def filler
+    white_on_dk_gray('                     ')
+  end
+
+  def filler_label
+    white_on_dk_gray('        coffee       ')
+  end
+
+  def espresso
+    white_on_black('                   ')
+  end
+
+  def espresso_label
+    white_on_black('     espresso    ')
+  end
+end
