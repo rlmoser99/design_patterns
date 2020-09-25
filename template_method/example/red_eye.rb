@@ -18,14 +18,6 @@ class RedEye < CoffeeDrink
     white_on_dk_gray('        coffee       ')
   end
 
-  def espresso
-    white_on_black('                   ')
-  end
-
-  def espresso_label
-    white_on_black('     espresso    ')
-  end
-
   def warning
     "\e[91m(extra caffeinated)\e[0m"
   end

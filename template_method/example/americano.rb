@@ -18,13 +18,5 @@ class Americano < CoffeeDrink
     white_on_lt_blue('      hot water      ')
   end
 
-  def espresso
-    white_on_black('                   ')
-  end
-
-  def espresso_label
-    white_on_black('     espresso    ')
-  end
-
   def warning; end
 end

@@ -18,13 +18,5 @@ class Latte < CoffeeDrink
     black_on_white('    steamed milk     ')
   end
 
-  def espresso
-    white_on_black('                   ')
-  end
-
-  def espresso_label
-    white_on_black('     espresso    ')
-  end
-
   def warning; end
 end

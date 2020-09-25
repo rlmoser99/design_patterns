@@ -37,11 +37,11 @@ class CoffeeDrink
   end
 
   def espresso
-    raise 'Called abstract method: espresso'
+    white_on_black('                   ')
   end
 
   def espresso_label
-    raise 'Called abstract method: espresso_label'
+    white_on_black('     espresso    ')
   end
 
   def warning
