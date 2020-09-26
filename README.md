@@ -10,8 +10,10 @@ The general idea of the Template Method pattern is to build an abstract base cla
 
 ## Strategy
 **Problem:** 
+We need to vary part of an algorithm— something we previously solved using the Template Method pattern— although we want to avoid its drawbacks, introduced by the fact that it's built around inheritance.
 
 **Solution:** 
+To avoid problems introduced by inheritance we should use delegation. Instead of creating subclasses (like in the Template Method pattern), we tear out the varying part of the code and isolate it in its own class and create one of them for each variation. The key idea of the Strategy pattern is to define a family of objects (strategies), which all do (almost) the same thing and support the same interface. Then, the user of the strategy (context) can treat the strategies as interchangeable parts.
 
 ### Additional Source
 https://github.com/davidgf/design-patterns-in-ruby
