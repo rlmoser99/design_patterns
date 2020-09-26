@@ -1,4 +1,5 @@
 # Design Patterns in Ruby
+Find the best pattern for the problem you have. Do not try to find a way to stick in the pattern that you want to use.
 
 ## Template Method
 **Problem:** 
