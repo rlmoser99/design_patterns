@@ -13,8 +13,10 @@
 - Computing taxes for residents of different states.
 
 **Other Examples:**
-- Do Coffee for Fun
+- Do Coffee for Fun ???
 - Make Camp Schedules for Different Age Groups
+- Same Schedule that goes to parent & to the teachers. (not showing bathroom and snack?)
+- 
 
 **"Real World" Examples:**
 - 
