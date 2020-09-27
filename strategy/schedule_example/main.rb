@@ -8,8 +8,8 @@ require_relative 'child'
 schedule = Schedule.new(Teacher.new)
 schedule.to_s
 
-schedule.audience = Parent.new
-schedule.to_s
+# schedule.audience = Parent.new
+# schedule.to_s
 
-schedule.audience = Child.new
-schedule.to_s
+# schedule.audience = Child.new
+# schedule.to_s

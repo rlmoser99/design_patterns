@@ -16,7 +16,11 @@
 - Do Coffee for Fun ???
 - Make Camp Schedules for Different Age Groups
 - Same Schedule that goes to parent & to the teachers. (not showing bathroom and snack?)
-- 
+- Different methods for mapping out how to get from A to B.
+- Different ways to sort the same data. 
+- Something that needs to be decided at run-time.
+- List of movies with the rating (G, PG, PG-13, R) - List based on class?
+- Nickname Generator
 
 **"Real World" Examples:**
 - 
