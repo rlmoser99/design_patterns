@@ -16,7 +16,7 @@ class EncouragingName
       'd' => 'Distinguished',
       'e' => 'Enthusiastic',
       'f' => 'Fantastic',
-      'g' => 'Generous',
+      'g' => 'Genius',
       'h' => 'Honest',
       'i' => 'Impressive',
       'j' => 'Jovial',

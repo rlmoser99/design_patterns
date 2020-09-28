@@ -15,12 +15,18 @@
 **Other Examples:**
 - Do Coffee for Fun ???
 - Make Camp Schedules for Different Age Groups
-- Same Schedule that goes to parent & to the teachers. (not showing bathroom and snack?)
+- Same Schedule that goes to parent & to the teachers. (not showing times, bathroom and snack?)
 - Different methods for mapping out how to get from A to B.
 - Different ways to sort the same data. 
 - Something that needs to be decided at run-time.
 - List of movies with the rating (G, PG, PG-13, R) - List based on class?
 - Nickname Generator
+- Catering Options (set-up, clean-up, food delivery)
+- Ordering Coffee (report on cost, caffeine or calories)
+- Cake Mix instructions - normal, healthy, delicious
+- Billing for Web Work - regular vs. friend/family
+- Class Schedule for regular and AP classes
+- DI Challenge with supplies - less for older kids.
 
 **"Real World" Examples:**
 - 

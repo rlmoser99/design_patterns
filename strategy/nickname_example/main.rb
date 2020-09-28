@@ -7,7 +7,7 @@ require_relative 'mean_name'
 encouraging = EncouragingName.new
 mean = MeanName.new
 
-intro = Introduction.new('Rachel', encouraging)
+intro = Introduction.new('Frank', encouraging)
 intro.generate_introduction
 
 intro.mood = mean
