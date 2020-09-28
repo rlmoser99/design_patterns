@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 class EncouragingName
-  def generate_nickname(context)
+  def generate_introduction(context)
     letter = context.name[0].downcase
-    puts "#{description(letter)} #{context.name}"
+    description = description(letter)
+    sentence = context.sentence
+    puts "#{description} #{context.name} #{sentence[:start]} #{description.downcase} #{sentence[:final]}"
   end
 
   def description(letter)
@@ -21,7 +23,7 @@ class EncouragingName
       'k' => 'Knowledgeable',
       'l' => 'Legendary',
       'm' => 'Magnificent',
-      'n' => 'Novel',
+      'n' => 'Nice',
       'o' => 'Optimistic',
       'p' => 'Phenomenal',
       'q' => 'Quiet',
@@ -29,7 +31,7 @@ class EncouragingName
       's' => 'Special',
       't' => 'Terrific',
       'u' => 'Upstanding',
-      'v' => 'Victorious',
+      'v' => 'Vibrant',
       'w' => 'Wonderful',
       'x' => 'eXtraordinary',
       'y' => 'Youthful',
