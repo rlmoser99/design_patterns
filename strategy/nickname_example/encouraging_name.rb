@@ -1,13 +1,12 @@
 # frozen_string_literal: true
 
-class NiceGenerator
+class EncouragingName
   def generate_nickname(context)
-    letter = context.name[0]
-    nickname = namemaker(letter.downcase)
-    puts "#{nickname} #{context.name}"
+    letter = context.name[0].downcase
+    puts "#{description(letter)} #{context.name}"
   end
 
-  def namemaker(letter)
+  def description(letter)
     {
       'a' => 'Amazing',
       'b' => 'Brilliant',
@@ -21,7 +20,7 @@ class NiceGenerator
       'j' => 'Jovial',
       'k' => 'Knowledgeable',
       'l' => 'Legendary',
-      'm' => 'Masterful',
+      'm' => 'Magnificent',
       'n' => 'Novel',
       'o' => 'Optimistic',
       'p' => 'Phenomenal',

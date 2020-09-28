@@ -2,14 +2,14 @@
 
 class NicknameGenerator
   attr_reader :name
-  attr_accessor :generator
+  attr_accessor :mood
 
-  def initialize(name, generator)
+  def initialize(name, mood)
     @name = name
-    @generator = generator
+    @mood = mood
   end
 
   def generate_nickname
-    @generator.generate_nickname(self)
+    @mood.generate_nickname(self)
   end
 end

@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 require_relative 'nickname_generator'
-require_relative 'nice_generator'
-require_relative 'mean_generator'
+require_relative 'encouraging_name'
+require_relative 'mean_name'
 
-nickname = NicknameGenerator.new('Megan', NiceGenerator.new)
+encouraging = EncouragingName.new
+mean = MeanName.new
+
+nickname = NicknameGenerator.new('Rachel', encouraging)
 nickname.generate_nickname
 
-# Not sure all should clases should be using the same name
-# Add colors to it?
-
-nickname.generator = MeanGenerator.new
+nickname.mood = mean
 nickname.generate_nickname
