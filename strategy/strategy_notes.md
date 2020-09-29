@@ -1,12 +1,16 @@
 # Strategy Pattern Notes
 
+**Terminology:**
+- Strategy -> Classes that perform the same method
+- Context -> User of the different Strategies (named by GoF)
+
 **Notes:**
-- Pull the algorithm out into a separate object.
-- Define a family of objects, the strategies, which all do the same thing - in our example, format the report. Not only does each strategy object perform the same job, but all of the objects support exactly the same interface. 
-- The user of the strategy, called the 'context' class by GoF, can treat the strategies like interchangeable parts. 
-- This relieves the report class of responsibility for or knowledge of the report file format.
 - This pattern is based on composition and delegation, rather than on inheritance.
-- Template & Strategy allow us to decide which variation to use in one (or few) places.
+- Put the varying algorithm into separate objects.
+- These Strategy objects all do the same thing (book example -> formats the report). All of the Strategy objects support exactly the same interface. 
+- The Context class can use the Strategy classes like interchangeable parts. 
+- This relieves the Context class of the responsibility for or knowledge of the report file format.
+- Like the Template Method, this pattern allows the user to change which variation to use in one place.
 
 **Book Example:**
 - Report in HTML and Plain Text
@@ -30,3 +34,7 @@
 
 **"Real World" Examples:**
 - 
+
+**Question:**
+- Having the context class, pass a particular instance variable into the strategy class method (like challenge.supplies - instead of entire context).
+- Have the context class, have a default strategy - like the challenge.age default to Elementary?

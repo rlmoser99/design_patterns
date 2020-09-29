@@ -1,13 +1,14 @@
 # frozen_string_literal: true
 
 class Challenge
-  attr_reader :title, :instructions, :supplies
-  attr_accessor :age
+  attr_reader :title, :instructions, :time_limit, :supplies
+  attr_accessor :level
 
-  def initialize(age)
-    @age = age
+  def initialize(&level)
+    @level = level
     @title = 'Build the Tallest Tower!'
     @instructions = "Using the following supplies, build a free-standing tower that is as tall as possible.\n\n"
+    @time_limit = 6
     @supplies = {
       notecards: 8,
       pipe_cleaners: 6,
@@ -18,13 +19,13 @@ class Challenge
   end
 
   def output_challenge
-    puts "\nDESTINATION IMAGINATION INSTANT CHALLENGE"
+    puts "\n\nDESTINATION IMAGINATION INSTANT CHALLENGE"
     puts "\nTitle: #{title}"
     puts "Instructions: #{instructions}"
     output_supplies
   end
 
   def output_supplies
-    @age.output_supplies(self)
+    @level.call(self)
   end
 end
