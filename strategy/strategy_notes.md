@@ -1,14 +1,14 @@
 # Strategy Pattern Notes
 
 **Terminology:**
-- Strategy -> Classes that perform the same method
+- Strategy -> Proc that perform the same method
 - Context -> User of the different Strategies (named by GoF)
 
 **Notes:**
 - This pattern is based on composition and delegation, rather than on inheritance.
-- Put the varying algorithm into separate objects.
-- These Strategy objects all do the same thing (book example -> formats the report). All of the Strategy objects support exactly the same interface. 
-- The Context class can use the Strategy classes like interchangeable parts. 
+- Put the varying algorithm into separate procs.
+- These Strategy procs all do the same thing (book example -> formats the report). All of the Strategy objects support exactly the same interface. 
+- The Context class can use the Strategies like interchangeable parts. 
 - This relieves the Context class of the responsibility for or knowledge of the report file format.
 - Like the Template Method, this pattern allows the user to change which variation to use in one place.
 
