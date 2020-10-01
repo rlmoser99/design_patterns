@@ -1,13 +1,13 @@
 # Strategy Pattern Notes
 
 **Terminology:**
-- Strategy -> Proc that perform the same method
+- Strategy -> Proc that perform the same method. Class if it requires more than 1 method.
 - Context -> User of the different Strategies (named by GoF)
 
 **Notes:**
 - This pattern is based on composition and delegation, rather than on inheritance.
-- Put the varying algorithm into separate procs.
-- These Strategy procs all do the same thing (book example -> formats the report). All of the Strategy objects support exactly the same interface. 
+- Put the varying algorithm into separate procs/classes.
+- These Strategy procs/classes all do the same thing (book example -> formats the report). All of the strategies support exactly the same interface. 
 - The Context class can use the Strategies like interchangeable parts. 
 - This relieves the Context class of the responsibility for or knowledge of the report file format.
 - Like the Template Method, this pattern allows the user to change which variation to use in one place.
@@ -36,5 +36,19 @@
 - 
 
 **Question:**
-- Having the context class, pass a particular instance variable into the strategy class method (like challenge.supplies - instead of entire context).
 - Have the context class, have a default strategy - like the challenge.age default to Elementary?
+
+## Discussion
+
+Explain my example:
+I got my code example idea from an organization called "Destination Imagination" that I am heavily involved in. It is a STEM + Arts creative problem-solving competition. Part of the tournament process is privately completing an "Instant Challenge" with judges that score all of the teams. Most of the instant challenges have different age levels. All the kids solve the exact same challenge, but the older you are the less supplies you are given & the less time you have to complete it. 
+
+tl;dr 
+This code example is similar to a "recipe" that changes based on an age level.
+https://repl.it/@rlmoser/StrategyPattern-TowerChallenge#main.rb
+
+My thoughts/summary:
+I haven't had (or more likely seen) the opportunity to use procs/lambdas, so this pattern helped me understand how they could be useful. However, it is also good to know that you can still use this pattern with a class when more than one method is needed in different Strategies. 
+
+One of my initial code example idea for this pattern needed a second method, so I went ahead and created it with classes.
+https://repl.it/@rlmoser/StrategyPattern-Introduction#main.rb

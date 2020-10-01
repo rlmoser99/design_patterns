@@ -4,8 +4,7 @@ class EncouragingName
   def generate_introduction(context)
     letter = context.name[0].downcase
     description = description(letter)
-    sentence = context.sentence
-    puts "#{description} #{context.name} #{sentence[:start]} #{description.downcase} #{sentence[:final]}"
+    puts "#{description} #{context.name}, because they can be a #{description.downcase} #{context.profession}.\n\n"
   end
 
   def description(letter)

@@ -6,8 +6,7 @@ class MeanName
     description = insult
     split_name.insert(2, description)
     nickname = split_name.join('')
-    sentence = context.sentence
-    puts "#{nickname} #{sentence[:start]} #{description.downcase} #{sentence[:final]}"
+    puts "#{nickname}, because they can be a #{description.downcase} #{context.profession}.\n\n"
   end
 
   def insult
