@@ -1,6 +1,26 @@
 # Design Patterns in Ruby
 Find the best pattern for the problem you have. Do not try to find a way to stick in the pattern that you want to use.
 
+Summary of GoF Patterns
+- Template Method: redefines certain steps of an algorithm without changing the algorithm's structure
+- Strategy: varies part of an algorithm at runtime
+- Observer: helps building a highly integrated system, maintainable and avoids coupling between classes
+- Composite: builds a hierarchy of tree objects and interacts with all them the same way
+- Iterator: provides a way to access a collection of sub-objects without exposing the underlaying representation
+- Command: performs some specific task without having any information about the receiver of the request
+- Adapter: helps two incompatible interfaces to work together
+- Proxy: allows us having more control over how and when we access to a certain object
+- Decorator: vary the responsibilities of an object adding some features
+- Singleton: have a single instance of certain class across the application
+- Factory: create objects without having to specify the exact class of the object that will be created
+- Builder: create complex objects that are hard to configure
+- Interpreter: provides a specialized language to solve a well defined problem of know domain
+
+Non-GoF Patterns: Patterns For Ruby
+- Domain-Specific Language: build a convenient syntax for solving problems of a specific domain.
+- Meta-Programming: gain more flexibility when defining new classes and create custom tailored objects on the fly.
+- Convention Over Configuration: build an extensible system and not carrying the configuration burden.
+
 ## Template Method
 **Problem:** 
 We have a complex bit of code, but somewhere in the middle there is a bit that needs to vary.
