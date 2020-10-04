@@ -1,13 +1,15 @@
 # frozen_string_literal: true
 
-class EncouragingName
+class EncouragingMood < Mood
   def generate_introduction(context)
-    letter = context.name[0].downcase
-    description = description(letter)
-    puts "#{description} #{context.name}, because they can be a #{description.downcase} #{context.profession}.\n\n"
+    name = context.name
+    description = generate_description(name[0].downcase)
+    puts "This is #{name}, or as we like to say, #{description} #{name}, because they are a #{description.downcase} #{context.profession}.\n\n"
   end
 
-  def description(letter)
+  private
+
+  def generate_description(letter)
     {
       'a' => 'Amazing',
       'b' => 'Brilliant',
