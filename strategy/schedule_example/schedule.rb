@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
-class Report
+class Schedule
   attr_reader :title, :text
-  attr_accessor :formatter
+  attr_accessor :audience
 
-  def initialize(&formatter)
+  def initialize(audience)
     @title = 'Monthly Report'
     @text = ['Things are going', 'really, really well.']
-    @formatter = formatter
+    @audience = audience
   end
 
-  def output_report
-    @formatter.call(self)
+  def to_s
+    @audience.to_s(self)
   end
 end

@@ -1,11 +1,29 @@
 # frozen_string_literal: true
 
 require_relative 'report'
-require_relative 'plain_text_formatter'
-require_relative 'html_formatter'
 
-report = Report.new(HTMLFormatter.new)
+HTML_FORMATTER = lambda do |context|
+  puts('<html>')
+  puts('  <head>')
+  puts("    <title>#{context.title}</title>")
+  puts('  </head>')
+  puts('  <body>')
+  context.text.each do |line|
+    puts("    <p>#{line}</p>")
+  end
+  puts('  </body>')
+  puts('</html>')
+end
+
+PLAIN_TEXT_FORMATTER = lambda do |context|
+  puts("***** #{context.title} *****")
+  context.text.each do |line|
+    puts(line)
+  end
+end
+
+report = Report.new(&HTML_FORMATTER)
 report.output_report
 
-report.formatter = PlainTextFormatter.new
+report.formatter = PLAIN_TEXT_FORMATTER
 report.output_report
