@@ -11,18 +11,13 @@ class Stock
     @price = price
   end
 
-  def update
-    market_change = daily_fluctuation
-    @price += market_change
-    return unless market_change.abs.positive?
+  def price=(new_price)
+    old_price = @price
+    @price = new_price
+    puts "Current Stock Price: $#{@price}"
+    return unless old_price != new_price
 
     changed
     notify_observers(@price)
-  end
-
-  private
-
-  def daily_fluctuation
-    [0, 1, -1, 2, -2, 3, -3, 6, -6, 9, -9, 27, -27].sample
   end
 end

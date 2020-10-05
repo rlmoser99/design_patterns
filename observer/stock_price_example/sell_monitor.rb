@@ -2,6 +2,8 @@
 
 class SellMonitor < Monitor
   def update(price)
-    puts "Time to sell stock, above $#{@limit}: $#{price}" if price > @limit
+    return unless price > @limit
+
+    puts "\e[34mTime to Sell Stock (above $#{@limit})\e[0m"
   end
 end

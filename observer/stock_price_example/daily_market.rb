@@ -7,9 +7,14 @@ class DailyMarket
 
   def run
     loop do
-      @stock.update
-      print "Current stock price: $#{@stock.price}\n"
+      @stock.price += daily_fluctuation
       sleep 2
     end
+  end
+
+  private
+
+  def daily_fluctuation
+    [0, 1, -1, 2, -2, 3, -3, 6, -6, 9, -9, 15, 27].sample
   end
 end
