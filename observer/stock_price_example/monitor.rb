@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 class Monitor
-  def initialize(stock, limit)
-    @limit = limit
+  def initialize(stock)
     stock.add_observer(self)
   end
 end

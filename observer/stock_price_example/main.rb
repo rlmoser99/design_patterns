@@ -1,17 +1,15 @@
 # frozen_string_literal: true
 
 require_relative 'stock'
-require_relative 'daily_market'
+require_relative 'market'
 require_relative 'monitor'
-require_relative 'buy_monitor'
-require_relative 'sell_monitor'
-require_relative 'volatility_monitor'
+require_relative 'average_monitor'
+require_relative 'volitale_monitor'
+require_relative 'change_monitor'
 
 TOP_stock = Stock.new(150)
-daily_market = DailyMarket.new(TOP_stock)
-BuyMonitor.new(TOP_stock, 100)
-SellMonitor.new(TOP_stock, 200)
-VolatilityMonitor.new(TOP_stock, 25)
-daily_market.run
-
-# moving average
+market = Market.new(TOP_stock)
+ChangeMonitor.new(TOP_stock)
+AverageMonitor.new(TOP_stock)
+VolitaleMonitor.new(TOP_stock)
+market.monthly_fluctuation
