@@ -15,7 +15,7 @@ class Stock
   def price=(new_price)
     @price_history << new_price
     @price = new_price
-    puts "Today's Stock Price: $#{@price}"
+    puts "Current Stock Price: $#{@price}"
     return unless @price_history[-2] != new_price
 
     changed

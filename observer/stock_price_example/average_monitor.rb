@@ -2,7 +2,7 @@
 
 class AverageMonitor < Monitor
   def update(stock)
-    limit = 20
+    limit = 40
     average = stock.price_history.sum / stock.price_history.size
     difference = stock.price - average
     return unless difference.abs > limit

@@ -6,9 +6,9 @@ class Market
   end
 
   def monthly_fluctuation
-    puts "Today's Stock Price: $#{@stock.price}"
+    puts "Current Stock Price: $#{@stock.price}"
     30.times do
-      sleep 2
+      sleep 1
       @stock.price += daily_fluctuation
     end
   end
@@ -16,6 +16,6 @@ class Market
   private
 
   def daily_fluctuation
-    [0, 1, -1, 2, -2, 3, -3, 6, -6, 9, -12, 15, -18, 27].sample
+    [0, 1, -1, 2, 3, -5, 8, 13, -21, 34].sample
   end
 end

@@ -1,12 +1,12 @@
 # Design Patterns in Ruby
 Find the best pattern for the problem you have. Do not try to find a way to stick in the pattern that you want to use.
 
-Summary of GoF Patterns
+## Summary of GoF Patterns
 - Template Method: redefines certain steps of an algorithm without changing the algorithm's structure
 - Strategy: varies part of an algorithm at runtime
 - Observer: helps building a highly integrated system, maintainable and avoids coupling between classes
 - Composite: builds a hierarchy of tree objects and interacts with all them the same way
-- Iterator: provides a way to access a collection of sub-objects without exposing the underlaying representation
+- Iterator: provides a way to access a collection of sub-objects without exposing the under-laying representation
 - Command: performs some specific task without having any information about the receiver of the request
 - Adapter: helps two incompatible interfaces to work together
 - Proxy: allows us having more control over how and when we access to a certain object
@@ -22,6 +22,9 @@ Non-GoF Patterns: Patterns For Ruby
 - Convention Over Configuration: build an extensible system and not carrying the configuration burden.
 
 ## Template Method
+**Intent:** 
+Define a skeleton of an algorithm in an operation, deferring some steps to subclasses. Template Method lets subclasses redefine certain steps of a algorithm without changing the algorithm's structure.
+
 **Problem:** 
 We have a complex bit of code, but somewhere in the middle there is a bit that needs to vary.
 
@@ -29,6 +32,9 @@ We have a complex bit of code, but somewhere in the middle there is a bit that n
 The general idea of the Template Method pattern is to build an abstract base class with a skeletal method, which drives the bit of processing that needs to vary by making calls to abstract methods, which are then supplied by the concrete subclasses. The abstract base class controls the higher-level processing and the sub-classes simply fill in the details.
 
 ## Strategy
+**Intent:** 
+Define a family of algorithms, encapsulate each one, and make them interchangeable. Strategy lets the algorithm vary independently from clients that use it.
+
 **Problem:** 
 We need to vary part of an algorithm— something we previously solved using the Template Method pattern— although we want to avoid its drawbacks, introduced by the fact that it's built around inheritance.
 
@@ -36,6 +42,9 @@ We need to vary part of an algorithm— something we previously solved using the
 To avoid problems introduced by inheritance we should use delegation. Instead of creating subclasses (like in the Template Method pattern), we tear out the varying part of the code and isolate it in its own class and create one of them for each variation. The key idea of the Strategy pattern is to define a family of objects (strategies), which all do (almost) the same thing and support the same interface. Then, the user of the strategy (context) can treat the strategies as interchangeable parts.
 
 ## Observer
+**Intent:** 
+Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.
+
 **Problem:** 
 We want to build a system that is highly integrated, that is, a system where every part is aware of the state of the whole. We also want it to be maintainable, so we should avoid coupling between classes.
 
