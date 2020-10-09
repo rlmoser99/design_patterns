@@ -37,4 +37,15 @@
 - Ruby book does not mention anything about a Change Manager (pg. 299) to help maintain a complex dependency relationship between Subjects and Observers. 
 
 ## Discussion Thoughts:
-Reading about this pattern 
+I am not able to be here for the chat today or the voice chat tomorrow because one of my kids is in a 2-day tennis tournament. Before I leave, I wanted to leave my thoughts. If I have downtime at the tournament, I will check back in.
+
+For a code example, I created a stock market: the `stock` (subject) notifies 3 `monitors` (observers). The price fluctuation happens at random, so it will be different each time it is run.
+https://repl.it/@rlmoser/ObserverPattern-StockMarket#main.rb
+
+I found this pattern to be very fascinating because I have never knew that a class could automatically inform other classes of a change. I am reading the Ruby and GoF book and I noticed one interesting difference. 
+
+The most complex case that the Ruby book discussed was if the `Subject` has multiple changes. It suggested using a method, such as `changes_complete` to handle notifying `Observers`.
+
+The GoF book went a step further and suggested using a `Change Manager` class for more complex situations, such as having multiple `Subjects` that need to complete changes before notifying `Observers`. 
+
+If I had more time this week, I could have made my code example more complex and use a `Change Manager` for multiple stocks. For example, I could add `monitors` to indicate the stock with the highest price above average each day, the lowest price below average each day, etc. 
