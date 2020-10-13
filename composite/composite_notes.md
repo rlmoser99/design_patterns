@@ -15,10 +15,11 @@
 
 
 **Book Examples:**
-
+- Baking a cake. Breaking it down into steps, some steps are a collection of smaller steps.
 
 **Other Examples:**
-
+- Cost of Coffee (plain, milk, syrup, etc.)
+- Hospital or Doctor's office billing
 
 **"Real World" Examples:**
 
