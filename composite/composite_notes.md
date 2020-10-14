@@ -20,6 +20,7 @@
 **Other Examples:**
 - Cost of Coffee (plain, milk, syrup, etc.)
 - Hospital or Doctor's office billing
+- Car Wash Services
 
 **"Real World" Examples:**
 
