@@ -13,6 +13,6 @@ class ExteriorWindows < Service
   end
 
   def cost
-    4.00
+    4
   end
 end

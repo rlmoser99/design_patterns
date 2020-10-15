@@ -17,10 +17,6 @@ class ComboService < Service
     service.parent = nil
   end
 
-  def list
-    @sub_services.each { |service| puts service.name }
-  end
-
   def minutes
     @sub_services.inject(0.0) { |min, service| min + service.minutes }
   end
@@ -30,8 +26,8 @@ class ComboService < Service
   end
 
   def summary
-    puts "#{name} costs $#{cost} and takes #{minutes} minutes."
-    puts 'Includes:'
-    @sub_services.each { |service| puts service.name }
+    puts "#{name} costs $#{cost}0 and takes about #{minutes} minutes."
+    puts '  Includes:'
+    @sub_services.each { |service| puts "   - #{service.name}" }
   end
 end

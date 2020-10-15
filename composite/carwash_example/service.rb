@@ -18,6 +18,6 @@ class Service
   end
 
   def summary
-    puts "#{name} costs $#{cost} and takes #{minutes} minutes"
+    puts "#{name} costs $#{cost}0 and takes about #{minutes} minutes"
   end
 end

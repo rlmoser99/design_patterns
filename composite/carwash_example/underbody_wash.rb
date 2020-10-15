@@ -9,10 +9,10 @@ class UnderbodyWash < Service
   end
 
   def minutes
-    9
+    8
   end
 
   def cost
-    2.50
+    2
   end
 end

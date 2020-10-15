@@ -1,18 +1,18 @@
 # frozen_string_literal: true
 
 # An example of a most basic jobs - known as leaf classes
-class SoftClothWash < Service
+class VacuumCarpets < Service
   attr_accessor :name, :parent
 
   def initialize
-    super('Soft Cloth Wash')
+    super('Vacuum Carpets and Mats')
   end
 
   def minutes
-    12
+    15
   end
 
   def cost
-    3
+    3.5
   end
 end
