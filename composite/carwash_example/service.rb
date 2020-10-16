@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Common base class - known as the Component
+# The Component is the common base class & provides the interface.
 class Service
   attr_accessor :name, :parent
 
@@ -9,15 +9,86 @@ class Service
     @parent = nil
   end
 
-  def minutes
+  def total_time
     0
   end
 
-  def cost
-    0.0
+  def total_cost
+    0
+  end
+end
+
+# The Leaf Classes are the most basic building blocks.
+class BasicWash < Service
+  def initialize
+    super('Basic Wash')
   end
 
-  def summary
-    puts "#{name} costs $#{cost}0 and takes about #{minutes} minutes"
+  def total_time
+    15.0
+  end
+
+  def total_cost
+    5.0
+  end
+end
+
+# The Leaf Classes are the most basic building blocks.
+class CleanWindows < Service
+  def initialize
+    super('Clean Windows and Mirrors')
+  end
+
+  def total_time
+    12.0
+  end
+
+  def total_cost
+    3.0
+  end
+end
+
+# The Leaf Classes are the most basic building blocks.
+class TowelDry < Service
+  def initialize
+    super('Hand Towel Dry')
+  end
+
+  def total_time
+    10.0
+  end
+
+  def total_cost
+    2.5
+  end
+end
+
+# The Leaf Classes are the most basic building blocks.
+class UnderbodyWash < Service
+  def initialize
+    super('Underbody Wash')
+  end
+
+  def total_time
+    8.0
+  end
+
+  def total_cost
+    1.0
+  end
+end
+
+# The Leaf Classes are the most basic building blocks.
+class VacuumCarpets < Service
+  def initialize
+    super('Vacuum Carpets and Mats')
+  end
+
+  def total_time
+    15.0
+  end
+
+  def total_cost
+    3.5
   end
 end

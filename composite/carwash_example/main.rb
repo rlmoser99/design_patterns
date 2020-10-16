@@ -1,21 +1,23 @@
 # frozen_string_literal: true
 
+# (Leaf) Service: Basic Wash, Underbody Wash, Clean Windows, Towel Dry, and Vacuum Carpet.
 require_relative 'service'
+
+# (Composite) Combos: Express and Complete
 require_relative 'combo_service'
-require_relative 'soft_cloth_wash'
-require_relative 'underbody_wash'
-require_relative 'exterior_windows'
-require_relative 'express_combo'
-require_relative 'complete_combo'
-require_relative 'towel_dry'
-require_relative 'vacuum_carpets'
 
-express = ExpressCombo.new
-# puts express.minutes
-# puts express.cost
-express.summary
+# The leaf & composite components can be used universally by the clients:
+require_relative 'cash_register'
+require_relative 'employee'
 
-complete = CompleteCombo.new
-complete.summary
+puts 'Cash Register:'
+cash_register = CashRegister.new
+cash_register.charge_customer(BasicWash.new)
+cash_register.charge_customer(ExpressCombo.new)
+cash_register.charge_customer(CompleteCombo.new)
 
-# https://www.redcarpetpeoria.com/car-wash-services
+puts 'Employee:'
+riley = Employee.new('Riley')
+riley.time_estimate(BasicWash.new)
+riley.time_estimate(ExpressCombo.new)
+riley.time_estimate(CompleteCombo.new)

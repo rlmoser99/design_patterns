@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-#  'Container' made up of any number of subservices - known as Composite class
+# The Composite Classes are containers made up of other leaf or composite classes.
 class ComboService < Service
   def initialize(name)
     super(name)
@@ -17,17 +17,31 @@ class ComboService < Service
     service.parent = nil
   end
 
-  def minutes
-    @sub_services.inject(0.0) { |min, service| min + service.minutes }
+  def total_time
+    @sub_services.inject(0.0) { |min, service| min + service.total_time }
   end
 
-  def cost
-    @sub_services.inject(0.0) { |price, service| price + service.cost }
+  def total_cost
+    @sub_services.inject(0.0) { |price, service| price + service.total_cost }
   end
+end
 
-  def summary
-    puts "#{name} costs $#{cost}0 and takes about #{minutes} minutes."
-    puts '  Includes:'
-    @sub_services.each { |service| puts "   - #{service.name}" }
+# Composite Class using base as abstract
+class ExpressCombo < ComboService
+  def initialize
+    super('Express Combo')
+    add_sub_service(BasicWash.new)
+    add_sub_service(UnderbodyWash.new)
+    add_sub_service(CleanWindows.new)
+  end
+end
+
+# Composite Class using base as abstract
+class CompleteCombo < ComboService
+  def initialize
+    super('Complete Combo')
+    add_sub_service(ExpressCombo.new)
+    add_sub_service(VacuumCarpets.new)
+    add_sub_service(TowelDry.new)
   end
 end
