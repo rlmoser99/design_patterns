@@ -28,7 +28,4 @@
 ## Differences:
 
 ### Discord Note:
-I am going to be leaving soon for my kid's last tennis match this season. Before I leave, I wanted to at least share my code example. I created a car wash with 5 different services (leaf) and 2 combo packages (composite). The car wash's cash register and employee uses these components, but needs to know different information - the register handles the money & the employee needs to know how long it will take them. 
-https://repl.it/@rlmoser/CompositePattern-CarWash#main.rb
-
-This is a pretty basic example and fairly similar to the ruby book example of baking a cake. This pattern did not have a big eye-opening moment for me, like the previous patterns. The biggest takeaway from this pattern was the importance of creating a uniform interface for all components. 
+ This pattern did not have a big eye-opening moment for me, like the previous patterns. The biggest takeaway from this pattern was the importance of creating a uniform interface for all components. 
