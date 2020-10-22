@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
-# (Leaf) Service: Basic Wash, Underbody Wash, Clean Windows, Towel Dry, and Vacuum Carpet.
+# (Leaf) Services: Basic Wash, Underbody Wash, Clean Windows, Towel Dry, and Vacuum Carpet
 require_relative 'service'
 
 # (Composite) Combos: Express and Deluxe
 require_relative 'combo_service'
 
-# The leaf & composite components can be used universally by the clients:
+# (Iterator) Summary: Base and Time Summary (used by all components)
+require_relative 'summary'
+
+# (Clients) Uses leaf & composite components universally
 require_relative 'cash_register'
 require_relative 'employee'
-
-# ITERATOR:
-require_relative 'description'
 
 # Optional coupon that can be used with all components.
 require_relative 'coupon'
@@ -26,31 +26,31 @@ discount_wash = BasicWash.new(promo15)
 express = ExpressCombo.new
 discount_deluxe = DeluxeCombo.new(promo30)
 
-puts 'Cash Register:'
+puts 'CASH REGISTER (client using leaf and composite components):'
 cash_register = CashRegister.new
 cash_register.charge_customer(wash)
 cash_register.charge_customer(discount_wash)
 cash_register.charge_customer(express)
 cash_register.charge_customer(discount_deluxe)
 
-puts 'Employee:'
+puts "\nSUMMARY OF SERVICES (using base iterator):"
+# leaf with iterator
+puts 'Wash Includes:'
+puts wash.service_summary.create_list
+
+# composite with iterator
+puts 'Express Combo Includes:'
+puts express.service_summary.create_list
+
+# composite (containing above composite) with iterator
+puts 'Deluxe Combo Includes:'
+puts discount_deluxe.service_summary.create_list
+
+puts "\nEMPLOYEE TIME ESTIMATE SUMMARY (client using leaf & composite's iterator):"
 riley = Employee.new('Riley')
-riley.time_estimate(wash)
-riley.time_estimate(discount_wash)
-riley.time_estimate(express)
-riley.time_estimate(discount_deluxe)
-
-# express.iterator.each { |item| puts item.name }
-# discount_deluxe.iterator.each { |item| puts item.name }
-
-puts 'Express Combo Services:'
-summary = express.iterator.service_summary
-puts summary
-
-puts 'Deluxe Combo Services:'
-deluxe_summary = discount_deluxe.iterator.service_summary
-puts deluxe_summary
-
-puts 'Wash Services:'
-wash_summary = wash.iterator.service_summary
-puts wash_summary
+puts 'Wash Time Estimate:'
+puts riley.time_estimate(wash)
+puts 'Express Combo Time Estimate:'
+puts riley.time_estimate(express)
+puts 'Deluxe Combo Time Estimate:'
+puts riley.time_estimate(discount_deluxe)

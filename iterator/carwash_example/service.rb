@@ -12,9 +12,12 @@ class Service
     @sub_services = nil
   end
 
-  def iterator
-    # DescriptionIterator.new(self)
-    TimeList.new(self)
+  def service_summary
+    Summary.new(self)
+  end
+
+  def time_summary
+    TimeSummary.new(self)
   end
 
   def total_time

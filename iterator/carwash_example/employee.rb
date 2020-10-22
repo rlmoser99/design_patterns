@@ -7,7 +7,6 @@ class Employee
   end
 
   def time_estimate(service)
-    number = service.total_time.to_i
-    puts "\e[94m#{@name} needs #{number} minutes to do the #{service.name}.\e[0m"
+    service.time_summary.create_list
   end
 end

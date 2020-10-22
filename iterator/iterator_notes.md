@@ -25,10 +25,15 @@ Behavioral Design Pattern
 **Book Examples:**
 
 **Other Examples:**
-- Add to car wash - make menu of all and of only combos
+- Add to car wash example to add list of services for each component & for the employee client to summary the time for each component.
 
 **"Real World" Examples:**
 
 ## Differences:
 
 ### Discord Note:
+As I indicated earlier, I did not really get much practical information out of Ruby's chapter on iterator. After reviewing the GoF chapter and looking at other resources, I realized how this could be used in my composite example (car wash). 
+
+I forgot to mention it last Saturday, but I did add an optional coupon into the example. For this week, I added two iterators. The base `Summary` provides the name of each (leaf) service. The `TimeSummary` is used by the `Employee` client class.
+https://repl.it/repls/folder/Design_Patterns
+
