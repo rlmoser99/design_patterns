@@ -28,12 +28,19 @@ Behavioral Design Pattern
 - Add to car wash example to add list of services for each component & for the employee client to summary the time for each component.
 
 **"Real World" Examples:**
+- Can be useful when working with database, especially when working with cursors.
+- Counting stuff in your aggregate.
+- Filtering stuff
+
+**Link Briggs shared for JavaScript:**
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators
+
 
 ## Differences:
 
 ### Discord Note:
-As I indicated earlier, I did not really get much practical information out of Ruby's chapter on iterator. After reviewing the GoF chapter and looking at other resources, I realized how this could be used in my composite example (car wash). 
+Here is my composite example with two iterators. The base `Summary` provides the name of each (leaf) service. The `TimeSummary` is used by the `Employee` client class to summarize the time needed for each service.
+https://repl.it/@rlmoser/IteratorPattern-CarWash#main.rb
 
-I forgot to mention it last Saturday, but I did add an optional coupon into the example. For this week, I added two iterators. The base `Summary` provides the name of each (leaf) service. The `TimeSummary` is used by the `Employee` client class.
-https://repl.it/repls/folder/Design_Patterns
+
 

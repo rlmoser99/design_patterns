@@ -46,7 +46,7 @@ puts express.service_summary.create_list
 puts 'Deluxe Combo Includes:'
 puts discount_deluxe.service_summary.create_list
 
-puts "\nEMPLOYEE TIME ESTIMATE SUMMARY (client using leaf & composite's iterator):"
+puts "\nEMPLOYEE TIME ESTIMATE SUMMARY (client using TimeSummary iterator):"
 riley = Employee.new('Riley')
 puts 'Wash Time Estimate:'
 puts riley.time_estimate(wash)
