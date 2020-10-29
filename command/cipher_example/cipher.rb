@@ -2,26 +2,25 @@
 
 # abstract command class
 class Cipher
-  def initialize(string)
-    @incoming_string = string
+  attr_reader :incoming_string
+
+  def initialize
+    @incoming_string = nil
     @outgoing_string = nil
   end
 
-  def create_code
+  def execute
     raise NotImplementedError, "#{self.class} has not implemented method '#{__method__}'"
   end
 
-  def undo
-    @incoming_string
+  def unexecute
+    "\e[31m#{@incoming_string}\e[0m"
   end
 end
 
 class CaesarCipher < Cipher
-  def initialize(string)
-    super(string)
-  end
-
-  def create_code(result = '')
+  def execute(string, result = '')
+    @incoming_string = string
     @incoming_string.each_char do |char|
       base = char.ord < 91 ? 65 : 97
       result << character_shift(char, base)
@@ -44,24 +43,46 @@ class CaesarCipher < Cipher
 end
 
 class ReverseCipher < Cipher
-  def initialize(string)
-    super(string)
-  end
-
-  def create_code
-    @outgoing_string = @incoming_string.reverse
+  def execute(string)
+    @incoming_string = string
+    @outgoing_string = @incoming_string.reverse.downcase
+    @outgoing_string
   end
 end
 
-class RotateCipher < Cipher
-  def initialize(string)
-    super(string)
+# class RotateCipher < Cipher
+#   def initialize(string)
+#     super(string)
+#   end
+
+#   def execute
+#     array = @incoming_string.downcase.split(//)
+#     shift = rand(array.length)
+#     result = array.rotate(shift)
+#     @outgoing_string = result.join
+#   end
+# end
+
+# MAKE A SHUFFLE LETTER CIPHER?
+
+# Maybe actually create "real" unexecute methods.
+
+class TraditionalCipher < Cipher
+  def execute(string)
+    @incoming_string = string
+    phrase = @incoming_string.downcase
+    code = phrase.gsub(/[a-z]/, cipher)
+    @outgoing_string = code
   end
 
-  def create_code
-    array = @incoming_string.split(//)
-    shift = rand(array.length)
-    result = array.rotate(shift)
-    @outgoing_string = result.join
+  # rubocop: disable Layout/LineLength
+  def cipher
+    { 'a' => '@', 'b' => 'q', 'c' => 'l', 'd' => 'w', 'e' => 'n', 'f' => 'r', 'g' => 't', 'h' => 'y', 'i' => '!', 'j' => 'u', 'k' => '&', 'l' => 'i', 'm' => 'o', 'n' => 'p', 'o' => '*', 'p' => 'a', 'q' => 's', 'r' => 'd', 's' => '$', 't' => 'f', 'u' => 'g', 'v' => 'h', 'w' => '#', 'x' => '%', 'y' => 'j', 'z' => 'k' }
   end
 end
+
+# def cipher
+#   { 'a' => '', 'b' => '', 'c' => '', 'd' => '', 'e' => '', 'f' => '', 'g' => '', 'h' => '', 'i' => '', 'j' => '', 'k' => '', 'l' => '', 'm' => '', 'n' => '', 'o' => '', 'p' => '', 'q' => '', 'r' => '', 's' => '', 't' => '', 'u' => '', 'v' => '', 'w' => '', 'x' => '', 'y' => '', 'z' => '' }
+# end
+
+# rubocop: enable Layout/LineLength

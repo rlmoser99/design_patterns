@@ -4,6 +4,12 @@ Behavioral Design Pattern
 **Terminology:**
 - Command Class -> classes that have a common interface & is created by a ___
 - Composite Command Class -> class that groups different commands
+- ConcreteCommand
+- Client
+- Invoker
+- Receiver
+
+
 
 **Use Cases:**
 - When you need to perform a series of operations for which each operation has a substantial "start-up" cost when done alone. For example, connecting to a database.
@@ -20,7 +26,10 @@ Behavioral Design Pattern
 
 
 **Other Examples:**
-- Code Maker - create 3 ways to cipher text - ceasar, rotate, backward. Keep track of what order they are done it to un-do it!!!
+- Code Maker - create 3 ways to cipher text - ceasar, rotate, backward. Keep track of what order they are done it to un-do it!!! (not sure this fits) -> create email, text, etc that can use these to send @message.
+- create tasks that happen - turn light on/off. add 10/-10
+- remote for drone (turn on/off, etc)
+- Create actions to save class to Marshall, load class
 
 **"Real World" Examples:**
 - ActiveRecord is a classic example 
@@ -37,3 +46,5 @@ Command decouples the object that invokes the operation from the one that knows 
 ### Discord Note:
 Chess - strategy or command?
 
+https://www.baeldung.com/java-command-pattern
+implementing four components: the Command, the Receiver, the Invoker, and the Client.
