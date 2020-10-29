@@ -48,3 +48,6 @@ Chess - strategy or command?
 
 https://www.baeldung.com/java-command-pattern
 implementing four components: the Command, the Receiver, the Invoker, and the Client.
+
+
+should ultra one keep track of one by one (decrypt one at a time?)

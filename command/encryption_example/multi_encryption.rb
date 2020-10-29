@@ -17,6 +17,15 @@ class MultiEncryption < Encryption
     end
     result[-1]
   end
+
+  def unexecute(string)
+    result = [string]
+    @encryptions.reverse.each do |encryption|
+      phrase = encryption.unexecute(result[-1])
+      result << phrase
+    end
+    result[-1]
+  end
 end
 
 class TripleEncryption < MultiEncryption

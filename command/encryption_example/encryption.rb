@@ -9,7 +9,7 @@ class Encryption
   end
 
   def unexecute(string)
-    "\e[90m#{string}\e[0m"
+    string
   end
 end
 
@@ -23,15 +23,22 @@ class CaesarEncryption < Encryption
   def execute(string, result = '')
     string.each_char do |char|
       base = char.ord < 91 ? 65 : 97
-      result << character_shift(char, base)
+      result << character_shift(char, base, 5)
+    end
+    result
+  end
+
+  def unexecute(string, result = '')
+    string.each_char do |char|
+      base = char.ord < 91 ? 65 : 97
+      result << character_shift(char, base, -5)
     end
     result
   end
 
   private
 
-  def character_shift(char, base)
-    shift = 5
+  def character_shift(char, base, shift)
     char_num = char.ord
     if char_num.between?(65, 90) || char_num.between?(97, 122)
       rotation = (((char_num - base) + shift) % 26) + base
@@ -47,11 +54,20 @@ class ReverseEncryption < Encryption
     reverse_words = string.split(' ').map { |word| word.reverse.downcase }
     reverse_words.join(' ')
   end
+
+  def unexecute(string)
+    reverse_words = string.split(' ').map { |word| word.reverse.downcase }
+    reverse_words.join(' ')
+  end
 end
 
 class TraditionalEncryption < Encryption
   def execute(string)
     string.downcase.gsub(/[a-z]/, cipher)
+  end
+
+  def unexecute(string)
+    string.downcase.gsub(/[a-z]/, cipher.invert)
   end
 
   # rubocop: disable Layout/LineLength
