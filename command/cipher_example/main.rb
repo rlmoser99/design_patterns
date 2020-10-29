@@ -1,30 +1,66 @@
 # frozen_string_literal: true
 
-require_relative 'cipher'
+# Abstract Command and Concrete Commands
+require_relative 'encryption'
+
+# Abstract Composite Command and Concrete Composite Command
+require_relative 'multi_encryption'
+
+# Invoker
 require_relative 'message'
-require_relative 'ultra_cipher'
 
-# only keep ciphers that keep same word numbers!
+# Client that uses message
+require_relative 'message_manager'
 
-# quote = 'As you wish'
-# quote = 'Anybody want a peanut'
-# quote = 'You are the Brute Squad'
+# should ultra one keep track of one by one (decrypt one at a time?)
+# Create "real" unexecute methods!
+# Invoker is the Message
+# WHAT SHOULD BE THE CLIENT?
 
-email_info = 'Have fun storming the castle'
-email = Message.new(email_info, CaesarCipher.new)
-puts email.encrypt
-puts email.decrypt
+# CREATE A PROPER UNDO & THEN MANAGER ONLY NEEDS TWO CLASSES!
 
-text_info = 'Anybody want a peanut'
-text_message = Message.new(text_info, ReverseCipher.new)
-puts text_message.encrypt
-puts text_message.decrypt
+puts 'CLIENT:'
+test = MessageManager.new
+puts test.post_greeting
+puts test.remove_greeting
+puts test.post_reply
+puts test.remove_reply
+puts test.post_question
+puts test.remove_question
+puts test.post_warning
+puts test.remove_warning
+puts test.post_farewell
+puts test.remove_farewell
 
-ultra = UltraCipher.new
-ultra.add_cipher(CaesarCipher.new)
-ultra.add_cipher(ReverseCipher.new)
+# puts 'NOT USING CLIENT:'
+# test = 'Have fun storming the castle'
+# test_msg = Message.new(test, PlainEncryption.new)
+# puts test_msg.send
+# puts test_msg.delete
 
-secret_info = 'Hello my name is Inigo Montoya'
-secret = Message.new(secret_info, ultra)
-puts secret.encrypt
-puts secret.decrypt
+# email_info = 'Have fun storming the castle'
+# email = Message.new(email_info, CaesarEncryption.new)
+# puts email.send
+# puts email.delete
+
+# text_info = 'Anybody want a peanut'
+# text_message = Message.new(text_info, ReverseEncryption.new)
+# puts text_message.send
+# puts text_message.delete
+
+# brother_info = 'You are the Brute Squad'
+# brother_email = Message.new(brother_info, TraditionalEncryption.new)
+# puts brother_email.send
+# puts brother_email.delete
+
+# CHANGE add_cipher to add_encryption
+
+# ultra = UltraEncryption.new
+# ultra.add_cipher(CaesarEncryption.new)
+# ultra.add_cipher(ReverseEncryption.new)
+# ultra.add_cipher(TraditionalEncryption.new)
+
+# secret_info = 'Hello my name is Inigo Montoya'
+# secret = Message.new(secret_info, ultra)
+# puts secret.send
+# puts secret.delete

@@ -1,18 +1,18 @@
 # frozen_string_literal: true
 
 class Message
-  attr_accessor :command
+  attr_accessor :encryption
 
-  def initialize(text, command)
-    @text = text
-    @command = command
+  def initialize(message, encryption)
+    @message = message
+    @encryption = encryption
   end
 
-  def encrypt
-    @command&.execute(@text)
+  def send
+    @encryption&.execute(@message)
   end
 
-  def decrypt
-    @command&.unexecute
+  def delete
+    @encryption&.unexecute(@message)
   end
 end
