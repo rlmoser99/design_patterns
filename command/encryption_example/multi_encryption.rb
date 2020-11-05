@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# abstract composite command
 class MultiEncryption < Encryption
   def initialize
     @encryptions = []
@@ -28,6 +29,7 @@ class MultiEncryption < Encryption
   end
 end
 
+# concrete composite command class
 class TripleEncryption < MultiEncryption
   def initialize
     @encryptions = []

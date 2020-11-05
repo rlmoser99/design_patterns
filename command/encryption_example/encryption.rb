@@ -13,12 +13,7 @@ class Encryption
   end
 end
 
-class PlainEncryption < Encryption
-  def execute(string)
-    string
-  end
-end
-
+# concrete command class
 class CaesarEncryption < Encryption
   def execute(string, result = '')
     string.each_char do |char|
@@ -49,6 +44,7 @@ class CaesarEncryption < Encryption
   end
 end
 
+# concrete command class
 class ReverseEncryption < Encryption
   def execute(string)
     reverse_words = string.split(' ').map { |word| word.reverse.downcase }
@@ -61,6 +57,7 @@ class ReverseEncryption < Encryption
   end
 end
 
+# concrete command class
 class TraditionalEncryption < Encryption
   def execute(string)
     string.downcase.gsub(/[a-z]/, cipher)

@@ -2,11 +2,10 @@
 Behavioral Design Pattern
 
 **Terminology:**
-- Command Class -> classes that have a common interface & is created by a ___
-- Composite Command Class -> class that groups different commands
-- ConcreteCommand
-- Client
-- Invoker
+- Command Class -> classes that have a common interface (`execute` and `unexecute`) and is used by the Invoker.
+- Composite Command Class -> class that groups different commands & uses the same interface.
+- Client -> class that creates an Invoker & provides it a Command class.
+- Invoker -> class that is given a Commands, but it only knows that the command interface (`execute` and `unexecute`).
 - Receiver
 
 
@@ -39,15 +38,16 @@ Commands are useful for keeping a running list of things that your program needs
 
 Command decouples the object that invokes the operation from the one that knows how to perform it
 
+When using a Composite Command, `unexecute` should call `unexecute` in the reverse order of the Commands.
 
+TIP: Make sure that you really this complexity before you use this pattern.
 
 ## Differences:
 
 ### Discord Note:
-Chess - strategy or command?
+For my example, I am using a few terms very loosely (like "encryption" and "unsend"). An `Encryption` (command) is executed/unexecuted by the `Message` (invoker). The `MessageEncryptor` (client) creates a `Message` and provides it an `Encryption` to send/unsend. 
 
-https://www.baeldung.com/java-command-pattern
-implementing four components: the Command, the Receiver, the Invoker, and the Client.
+In addition, I did create a composite command, because this is where I think this pattern will be very useful.
 
-
-should ultra one keep track of one by one (decrypt one at a time?)
+Repl.it Link:
+https://repl.it/@rlmoser/CommandPattern-Encryption#main.rb

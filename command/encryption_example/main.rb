@@ -10,19 +10,14 @@ require_relative 'multi_encryption'
 require_relative 'message'
 
 # Client Class:
+# creates a new message (invoker) each time it applies or removes "encryption"
 require_relative 'message_encryptor'
-
 encryptor = MessageEncryptor.new
 
-puts 'Plain Text execute/unexecute:'
-greeting = encryptor.apply_plain('Hello my name is Inigo Montoya')
-puts greeting
-puts encryptor.remove_plain(greeting)
-
 puts "\nCaesar Cipher Encryption execute/unexecute:"
-reply = encryptor.apply_caesar('you are the brute squad')
-puts reply
-puts encryptor.remove_caesar(reply)
+greeting = encryptor.apply_caesar('Hello my name is Inigo Montoya')
+puts greeting
+puts encryptor.remove_caesar(greeting)
 
 puts "\nWord Reverse Encryption execute/unexecute:"
 question = encryptor.apply_reverse('anybody want a peanut')

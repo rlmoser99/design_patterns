@@ -1,20 +1,13 @@
 # frozen_string_literal: true
 
+# client class
 class MessageEncryptor
-  def apply_plain(string)
-    Message.new(string, PlainEncryption.new).send
-  end
-
-  def remove_plain(string)
-    Message.new(string, PlainEncryption.new).delete
-  end
-
   def apply_caesar(string)
     Message.new(string, CaesarEncryption.new).send
   end
 
   def remove_caesar(string)
-    Message.new(string, CaesarEncryption.new).delete
+    Message.new(string, CaesarEncryption.new).unsend
   end
 
   def apply_reverse(string)
@@ -22,7 +15,7 @@ class MessageEncryptor
   end
 
   def remove_reverse(string)
-    Message.new(string, ReverseEncryption.new).delete
+    Message.new(string, ReverseEncryption.new).unsend
   end
 
   def apply_traditional(string)
@@ -30,7 +23,7 @@ class MessageEncryptor
   end
 
   def remove_traditional(string)
-    Message.new(string, TraditionalEncryption.new).delete
+    Message.new(string, TraditionalEncryption.new).unsend
   end
 
   def apply_triple(string)
@@ -38,6 +31,6 @@ class MessageEncryptor
   end
 
   def remove_triple(string)
-    Message.new(string, TripleEncryption.new).delete
+    Message.new(string, TripleEncryption.new).unsend
   end
 end

@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
+# invoker class
 class Message
-  attr_accessor :encryption
-
   def initialize(message, encryption)
     @message = message
     @encryption = encryption
@@ -12,7 +11,7 @@ class Message
     @encryption&.execute(@message)
   end
 
-  def delete
+  def unsend
     @encryption&.unexecute(@message)
   end
 end
