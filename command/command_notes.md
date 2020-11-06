@@ -45,9 +45,54 @@ TIP: Make sure that you really this complexity before you use this pattern.
 ## Differences:
 
 ### Discord Note:
+I'm a bit perplexed trying to figure out what would be the receiver & invoker in my example, so I'll just share what my original example. I'd love to talk this out as other people look at it.
+
 For my example, I am using a few terms very loosely (like "encryption" and "unsend"). An `Encryption` (command) is executed/unexecuted by the `Message` (invoker). The `MessageEncryptor` (client) creates a `Message` and provides it an `Encryption` to send/unsend. 
 
 In addition, I did create a composite command, because this is where I think this pattern will be very useful.
 
 Repl.it Link:
 https://repl.it/@rlmoser/CommandPattern-Encryption#main.rb
+
+# RECEIVER:
+
+The client creates a ConcreteCommand object and specifies its receiver.
+
+The ConcreteCommand object invokes operations on its receiver to carry out the request.
+
+MESSAGE -> An Invoker object stores the ConcreteCommand object.
+
+MESSAGE-ENCRYPTOR -> The client creates a ConcreteCommand object and specifies its receiver.
+
+# CURRENT
+
+The client creates a ConcreteCommand object and specifies its receiver.
+  The `MessageEncryptor` creates `Encryption` and creates `Message`.
+
+An Invoker object stores the ConcreteCommand object.
+  The `Message` stores the `Encryption`.
+
+The invoker issues a request by calling Execute on the command.
+  The `Message` will execute or unexecute `Encryption`.
+
+The ConcreteCommand object invokes operations on its receiver to carry out the request.
+  The `Encryption` alters the `Message`.
+
+# FUTURE
+
+The client creates a ConcreteCommand object and specifies its receiver.
+Client/ -> creates Encryption and specifies Message
+
+An Invoker object stores the ConcreteCommand object.
+Invoker/Encryptor -> has Message and Encryption
+
+The invoker issues a request by calling Execute on the command.
+
+The ConcreteCommand object invokes operations on its receiver to carry out the request.
+
+Receiver/Message -> has @data
+
+Command/Encryption -> alters Message.data
+
+
+
