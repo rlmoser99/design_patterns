@@ -1,6 +1,5 @@
-# frozen_string_literal: true
+# frozen_string_literal: false
 
-#
 # The ConcreteCommand object invokes operations on its receiver to carry out the request.
 
 # abstract command class
