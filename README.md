@@ -85,6 +85,15 @@ We want to perform some specific task without knowing how the whole process work
 **Solution:** 
 The Command pattern decouples the object that needs to perform a specific task from the one that knows how to do it. It encapsulates all the needed information to do the job into its own object including: who the receiver(s) is(are), the methods to invoke, and the parameters. That way, any object that wants to perform the task only needs to know about the command object interface.
 
+## Adapter (Structural)
+**Intent:** 
+Convert the interface of a class into another interface clients expect. Adapter lets classes work together that couldn't otherwise because of incompatible interfaces.
+
+**Problem:** 
+We want an object talk to some other object but their interfaces don't match.
+
+**Solution:** 
+We simply wrap the adaptee with our new adapter class. This class implements an interface that the invoker understands, although all the work is performed by the adapted object.
 
 ### Sources:
 Design Patterns in Ruby, by Russ Olsen
