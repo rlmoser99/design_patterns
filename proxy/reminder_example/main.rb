@@ -1,74 +1,34 @@
 require 'etc'
 require 'time'
 
-class Reminder
-  attr_reader :task
+require_relative 'reminder'
+require_relative 'secret_reminder'
+require_relative 'reminder_list'
 
-  def initialize(date, task)
-    @date = date
-    @task = task
-  end
-
-  def current_task
-    today = Date.today
-    puts today
-    if @date == today
-      @task
-    else
-      'no current task'
-    end
-  end
-
-  def future_task
-    today = Date.today
-    puts today
-    if @date > today
-      @task
-    else
-      'no future task'
-    end
-  end
-end
-
-
-class ReminderProtectionProxy
-  def initialize(actual_reminder, owner)
-    @subject = actual_reminder
-    @owner = owner
-  end
-
-  def current_task
-    check_access
-    return @subject.current_task
-  end
-
-  def future_task
-    check_access
-    return @subject.future_task
-  end
-
-  def check_access
-    if Etc.getlogin != @owner
-      raise "Invalid access: #{Etc.getlogin} cannot access reminder."
-    end
-  end
-end
-
-date = Date.today
+today = Date.today
 tomorrow = Date.today + 1
-puts "date is #{date}"
-puts "Tomorrow is #{tomorrow}"
-code = Reminder.new(date, 'Write Code')
-tests = Reminder.new(tomorrow, 'Write Tests')
+secret_access = Etc.getlogin
 
-login = Etc.getlogin
-puts code.current_task
-puts code.future_task
-puts tests.current_task
-puts tests.future_task
+ruby = Reminder.new(today, "Read Ruby's proxy chapter")
+secret_gof = SecretReminder.new(Reminder.new(today, "Read GoF's proxy chapter (secret)"), secret_access)
+project = Reminder.new(tomorrow, 'Start members-only project')
+code = Reminder.new(today, 'Make a proxy code example')
+secret_tutorial = SecretReminder.new(Reminder.new(tomorrow, "Finish Hartl's tutorial (secret)"), secret_access)
+project = Reminder.new(tomorrow, 'Start members-only project')
 
-reminder_proxy = ReminderProtectionProxy.new(code, login)
+my_reminders = ReminderList.new
+my_reminders.add_reminder(ruby)
+my_reminders.add_reminder(secret_gof)
+my_reminders.add_reminder(code)
+my_reminders.add_reminder(secret_tutorial)
+my_reminders.add_reminder(project)
 
-p reminder_proxy
-puts reminder_proxy.current_task
-puts reminder_proxy.future_task
+puts "TODAY'S TASKS:"
+my_reminders.current_task
+puts
+puts 'FUTURE TASKS:'
+my_reminders.future_task
+
+# puts 'CAN NOT ACCESS YOUR SECRET TASKS:'
+# your_secret_task = SecretReminder.new(Reminder.new(today, '???'), 'YOU')
+# your_secret_task.current_task
