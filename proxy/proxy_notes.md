@@ -10,6 +10,9 @@ Structural Design Pattern
   - Virtual Proxy: it delays the creation of an object until it is used.
 
 **Use Cases:**
+ - When an object should be accessed with authorization
+ - When an object is on a different server
+ - When creating an object is expensive to create, you can delay creation until it is used.
 
 **Book Examples:**
 
@@ -26,5 +29,11 @@ Structural Design Pattern
 **"Real World" Examples:**
 
 ## Summary:
+I created a simple protection proxy example. It creates 3 `reminders`, 2 `secret_reminders` for me and 1 `secret_reminder` for you. These reminders will print out, but will error out when it tries to print out your secret reminder.
+https://repl.it/@rlmoser/ProxyPattern-Reminders#main.rb
 
+The Ruby book discussed using `method_missing` and using `send` to essentially forward the message, but I decided to not implement that for this example. Not only does the book mention that this obscures the code, but I've heard that using `send` is a code smell.
+
+Maybe:
+Advantage of having a separation of concerns - security & data.
 
