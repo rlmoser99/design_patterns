@@ -27,4 +27,5 @@ I was a bit annoyed at the Ruby book going into detail about modifying a class. 
 
 > Adapters preserve encapsulation at the cost of some complexity. Modifying a class may buy you some simplifications, but at the cost of tinkering with the plumbing.
 
-
+### Austin's Adapter Example
+https://github.com/CouchofTomato/colorize_adapter
