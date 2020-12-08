@@ -109,6 +109,16 @@ With the proxy pattern we create an object, proxy, that has a reference to the r
 - Remote Proxy: when the object we want to use is in another machine and it should be fetched across the network, the proxy handles all the connection complexity, while the client can use the object as if it was in the same machine.
 - Virtual Proxy: it delays the creation of an object until it is used.
 
+## Decorator (Structural)
+**Intent:** 
+Attach additional responsibilities to an object dynamically. Decorators provide a flexible alternative to sub-classing for extending functionality.
+
+**Problem:** 
+We need to vary the responsibilities of an object, adding some features.
+
+**Solution:** 
+In the Decorator pattern we create an object that wraps the real one, and implements the same interface and forwarding method calls. However, before delegating to the real object, it performs the additional feature. Since all decorators implement the same core interface, we can build chains of decorators and assemble a combination of features at runtime.
+
 ### Sources:
 Design Patterns in Ruby, by Russ Olsen
 Design Patterns: Elements of Reusable Object-Oriented Software, by Gamma, Helm, Johnson, and Vlissides
