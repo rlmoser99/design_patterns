@@ -1,46 +1,46 @@
-require_relative 'board'
-require_relative 'board_decorator'
-require_relative 'all_red_symbols'
-require_relative 'all_blue_symbols'
-require_relative 'red_blue_symbols'
-require_relative 'capitalize_symbols'
+# Component
+require_relative 'tic_tac_toe_board'
 
-# require_relative 'time_stamping_writer'
+# Decorator
+require_relative 'symbol_decorator'
 
-# writer = NumberingWriter.new(SimpleWriter.new('final.txt'))
-# writer.write_line('Hello out there')
+# Concrete Decorator
+require_relative 'red_symbols'
+require_relative 'blue_symbols'
+require_relative 'multi_color_symbols'
+require_relative 'uppercase_symbols'
 
-# writer_all = TimeStampingWriter.new(
-#   NumberingWriter.new(SimpleWriter.new('final_all.txt')))
-# writer_all.write_line('Hello out there')
+# Sample data to display using the different decorators
+sample_data = [['x', ' ', 'x'], ['o', ' ', ' '], ['x', ' ', 'o']]
 
-sample_board = [['x', ' ', 'o'], ['o', ' ', ' '], ['x', ' ', ' ']]
-game = Board.new
-# game.write_board(sample_board)
+puts 'Regular Tic-Tac-Toe Board'
+regular = TicTacToeBoard.new
+regular.display_board(sample_data)
 
-red_game = AllRedSymbols.new(Board.new)
-# red_game.write_board(sample_board)
+puts 'Red Symbols'
+red_board = RedSymbols.new(TicTacToeBoard.new)
+red_board.display_board(sample_data)
 
-blue_game = AllBlueSymbols.new(Board.new)
-# blue_game.write_board(sample_board)
+puts 'Blue Symbols'
+blue_board = BlueSymbols.new(TicTacToeBoard.new)
+blue_board.display_board(sample_data)
 
-mixed_game = RedBlueSymbols.new(Board.new)
-# mixed_game.write_board(sample_board)
+puts 'Multi-Color Symbols'
+multi_color_board = MultiColorSymbols.new(TicTacToeBoard.new)
+multi_color_board.display_board(sample_data)
 
-capitalized = CapitalizeSymbols.new(Board.new)
-capitalized.write_board(sample_board)
+puts 'Uppercase Symbols'
+uppercase = UppercaseSymbols.new(TicTacToeBoard.new)
+uppercase.display_board(sample_data)
 
-mixed_capitalized = CapitalizeSymbols.new(RedBlueSymbols.new(Board.new))
-mixed_capitalized.write_board(sample_board)
+puts 'Uppercase + Multi-Color Symbols'
+uppercase_multi_color = UppercaseSymbols.new(MultiColorSymbols.new(TicTacToeBoard.new))
+uppercase_multi_color.display_board(sample_data)
 
-# CAN NOT BE REVERSED RIGHT NOW!!!
-reversed = RedBlueSymbols.new(CapitalizeSymbols.new(Board.new))
-reversed.write_board(sample_board)
+puts 'Multi-Color + Uppercase Symbols'
+multi_color_uppercase = MultiColorSymbols.new(UppercaseSymbols.new(TicTacToeBoard.new))
+multi_color_uppercase.display_board(sample_data)
 
-# COLORS DOUBLED UP WILL BE FIRST ONE CALLED ???
-# red_blue = AllRedSymbols.new(AllBlueSymbols.new(Board.new))
-# red_blue.write_board(sample_board)
-
-
-# rework wording - symbol, token, etc?
-
+puts 'Red + Blue = Red Symbols'
+red_blue = RedSymbols.new(BlueSymbols.new(TicTacToeBoard.new))
+red_blue.display_board(sample_data)
