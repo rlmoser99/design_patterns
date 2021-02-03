@@ -119,6 +119,16 @@ We need to vary the responsibilities of an object, adding some features.
 **Solution:** 
 In the Decorator pattern we create an object that wraps the real one, and implements the same interface and forwarding method calls. However, before delegating to the real object, it performs the additional feature. Since all decorators implement the same core interface, we can build chains of decorators and assemble a combination of features at runtime.
 
+## Singleton (Creational)
+**Intent:** 
+Ensure a class only has one instance, and provide a global point of access to it.
+
+**Problem:** 
+We need to have a single instance of a certain class across the whole application.
+
+**Solution:** 
+In the Singleton pattern, the access to the constructor is restricted so that it cannot be instantiated. So, the creation of the single instance is done inside the class and is held as a class variable. It can be accessed through a getter across the application.
+
 ### Sources:
 Design Patterns in Ruby, by Russ Olsen
 Design Patterns: Elements of Reusable Object-Oriented Software, by Gamma, Helm, Johnson, and Vlissides
