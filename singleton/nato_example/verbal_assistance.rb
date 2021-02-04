@@ -1,5 +1,5 @@
-class VerbalCommunicator
-  def verbal_spelling(word)
+class VerbalAssistance
+  def expanded_spelling(word)
     word.each_char do |char|
       puts "#{char.upcase} as in #{phonetic_translation(char.downcase)}"
     end

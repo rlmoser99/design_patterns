@@ -28,3 +28,10 @@ Alpha Bravo Example
 ## TOP Thoughts
 
 
+The singleton was probably one of the first design patterns that I had heard of, so it was nice to finally get to learn about it & not believe mis-information. Prior to this week, I just felt like I should avoid them at all costs. However, now I know when to reach for this pattern & how to use it properly. 
+
+Speaking of using it properly, my example is quite contrived... but I struggled to figure out an simple idea to code for this pattern. At first, it felt like I was making a glorified global variable or constant, which honestly it is. 
+
+I didn't realize how similar it is to them & the benefits that it has over them. Thankfully using the Ruby module makes it super easy to make sure there is only one instance of it. Plus the added benefit of it only being created when needed.
+
+https://repl.it/@rlmoser/SingletonPattern-NATO#main.rb

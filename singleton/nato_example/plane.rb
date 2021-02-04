@@ -1,7 +1,7 @@
 class Plane
   def initialize(id)
     @id = id
-    @comm = AirTrafficComm.new
+    @comm = AirTrafficCommunication.new
   end
 
   def identify
