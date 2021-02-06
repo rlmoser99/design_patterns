@@ -1,7 +1,5 @@
-# Command Pattern Notes
+# Singleton Pattern Notes
 Creational Design Pattern
-
-**Terminology:**
 
 **Use Cases:**
 - Ensure that a class has just a single instance. Why would anyone want to control how many instances a class has? The most common reason for this is to control access to some shared resource—for example, a database or a file.
@@ -13,25 +11,10 @@ Creational Design Pattern
 
 The Singleton pattern can mask bad design, for instance, when the components of the program know too much about each other.
 
-
-
-**Book Examples:**
-
-**Other Examples:**
-
 **"Real World" Examples:**
 `ActiveSupport`, which is a library of utility classes used by Rails. For example, `Inflections` class is a singleton, which saves space and ensures that the same inflection rules are available everywhere. In addition `rake`, Ruby's build utility, also uses a singleton, the `Rake::Application` object.
 
+Kevin said "I've only seen singleton's used for configuration in the ruby sphere. Usually in gems and for the initialization process in rails."
+
 ## My Example & Thoughts:
-Alpha Bravo Example
-
-## TOP Thoughts
-
-
-The singleton was probably one of the first design patterns that I had heard of, so it was nice to finally get to learn about it & not believe mis-information. Prior to this week, I just felt like I should avoid them at all costs. However, now I know when to reach for this pattern & how to use it properly. 
-
-Speaking of using it properly, my example is quite contrived... but I struggled to figure out an simple idea to code for this pattern. At first, it felt like I was making a glorified global variable or constant, which honestly it is. 
-
-I didn't realize how similar it is to them & the benefits that it has over them. Thankfully using the Ruby module makes it super easy to make sure there is only one instance of it. Plus the added benefit of it only being created when needed.
-
-https://repl.it/@rlmoser/SingletonPattern-NATO#main.rb
+NATO Alphabet idea
