@@ -129,6 +129,16 @@ We need to have a single instance of a certain class across the whole applicatio
 **Solution:** 
 In the Singleton pattern, the access to the constructor is restricted so that it cannot be instantiated. So, the creation of the single instance is done inside the class and is held as a class variable. It can be accessed through a getter across the application.
 
+## Factory (Creational)
+**Intent:** 
+Define an interface for creating an object, but let subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.
+
+**Problem:** 
+We need to create objects without having to specify the exact class of the object that will be created.
+
+**Solution:** 
+The Factory pattern is a specialization of the Template pattern. We start by creating a generic base class where we don't make the "which class" decision. Instead, whenever it needs to create a new object, it calls a method that is defined in a subclass. So, depending on the subclass we use (factory), we create objects of one class or another (products).
+
 ### Sources:
 Design Patterns in Ruby, by Russ Olsen
 Design Patterns: Elements of Reusable Object-Oriented Software, by Gamma, Helm, Johnson, and Vlissides
